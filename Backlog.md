@@ -13,6 +13,7 @@
 | 5 | Produce UML use case diagram          | HIGH   | 3hr | NOT STARTED |
 | 6 | Complete Architecture design          | HIGH   | 4hr | NOT STARTED |
 |6.1| Architecture UML Diagram              | HIGH   | 6hr | NOT STARTED |
-| 7 | UML Sequence or Communication Diagram | HIGH   | 2hr | NOT STARTED |
-| 8 | Data entry wireframe                  | HIGH   | 3hr | NOT STARTED |
-| 9 | Proof of concept prototype            | HIGH   | 4hr | NOT STARTED |
+| 7 | UML Activity Diagram                  | HIGH   | 1hr | NOT STARTED |
+| 8 | UML Sequence or Communication Diagram | HIGH   | 2hr | NOT STARTED |
+| 9 | Data entry wireframe                  | HIGH   | 3hr | NOT STARTED |
+| 10| Proof of concept prototype            | HIGH   | 4hr | NOT STARTED |
