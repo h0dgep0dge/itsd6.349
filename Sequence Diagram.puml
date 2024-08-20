@@ -1,20 +1,18 @@
 @startuml
+skinparam lifelineStrategy solid
 actor User
 
 User -> Map ++ : Open app
 loop for all Animals
     Map -> Animal ** : <<Create>>
-    'Animal --> Map'
 end
 
 loop for all Areas
     Map -> Area ** : <<Create>>
-    'Area --> Map'
 end
 
 loop for all animals in each area
     Map -> AnimalSeason ** : <<Create>>
-    'AnimalSeason --> Map'
 end
 
 return Ready, Show map
@@ -35,6 +33,8 @@ return Show Animals
 User -> Map ++ : Select Animal
 
     Map -> AnimalSeason ++ : getAnimalName()
+        AnimalSeason -> Animal ++ : getName()
+        return
     return
     Map -> AnimalSeason ++ : getSeasonDates()
     return
