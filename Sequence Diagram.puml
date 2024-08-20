@@ -1,0 +1,45 @@
+@startuml
+actor User
+
+User -> Map ++ : Open app
+loop for all Animals
+    Map -> Animal ** : <<Create>>
+    'Animal --> Map'
+end
+
+loop for all Areas
+    Map -> Area ** : <<Create>>
+    'Area --> Map'
+end
+
+loop for all animals in each area
+    Map -> AnimalSeason ** : <<Create>>
+    'AnimalSeason --> Map'
+end
+
+return Ready, Show map
+
+User -> Map ++ : Select Area
+
+    loop for all aninals in this area
+        Map -> Area ++ : getAnimalSeasons()
+        return
+        Map -> AnimalSeason ++ : getAnimalName()
+            AnimalSeason -> Animal ++ : getName()
+            return
+        return
+    end
+
+return Show Animals
+
+User -> Map ++ : Select Animal
+
+    Map -> AnimalSeason ++ : getAnimalName()
+    return
+    Map -> AnimalSeason ++ : getSeasonDates()
+    return
+
+return Show detailed information
+
+
+@enduml
