@@ -1,0 +1,32 @@
+@startuml
+
+node "<<Device>> HPE Proliant ML350" as server {
+
+    node Docker {
+        node "<<Web Server>> Apache" as Apache {
+            file index.php
+            file db.php
+        }
+        node Updater
+        database "<<Database>> PostgreSQL" as Postgres
+        Updater -ri(0- Postgres
+        Postgres -0)- Apache
+    }
+    file Dockerfile
+    Dockerfile - Docker
+}
+
+node "<<Device>> Mobile Phone" as Phone {
+    node "<<Mobile App>> Huntref" as Huntref {
+        file "Local Cache"
+
+    }
+    Huntref -(0- Apache
+}
+
+cloud "<<Remote Server>> Data server" as Data {
+
+}
+Updater -(0- Data
+
+@enduml
