@@ -12,7 +12,7 @@
 |4.1| Write model in python                 | MEDIUM | 2hr | COMPLETE    |
 | 5 | Produce UML use case diagram          | HIGH   | 3hr | COMPLETE    |
 | 6 | Complete Architecture design          | HIGH   | 4hr | WIP         |
-|6.1| Architecture Component Diagram        | HIGH   | 6hr | WIP         |
+|6.1| Architecture Deployment Diagram       | HIGH   | 6hr | WIP         |
 | 7 | UML Activity Diagram                  | HIGH   | 1hr | NOT STARTED |
 | 8 | UML Sequence Diagram                  | HIGH   | 2hr | WIP         |
 | 9 | Data entry wireframe                  | HIGH   | 3hr | NOT STARTED |
