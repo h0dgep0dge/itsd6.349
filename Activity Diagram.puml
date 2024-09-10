@@ -1,0 +1,19 @@
+@startuml
+
+start
+    :display search interface;
+    repeat :user search;
+    if(is search valid) then (valid)
+        :valid;
+        if(results found?) then (results)
+            :display information;
+        else (no results)
+            :no results found;
+        endif
+    else (invalid)
+        :show error;
+    endif
+    repeat while (perform another search) is (yes)
+    ->no;
+end
+@enduml

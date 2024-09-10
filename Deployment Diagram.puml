@@ -1,13 +1,12 @@
-@startuml
+@startuml Deployment Diagram
 
 node "<<Device>> HPE Proliant ML350" as server {
-
     node Docker {
         node "<<Web Server>> Apache" as Apache {
             file index.php
             file db.php
         }
-        node Updater
+        node "<<Application>> Updater" as Updater
         database "<<Database>> PostgreSQL" as Postgres
         Updater -ri(0- Postgres
         Postgres -0)- Apache
@@ -19,7 +18,7 @@ node "<<Device>> HPE Proliant ML350" as server {
 node "<<Device>> Mobile Phone" as Phone {
     node "<<Mobile App>> Huntref" as Huntref {
         file "Local Cache"
-
+        node "<<UI>> Map"
     }
     Huntref -(0- Apache
 }
