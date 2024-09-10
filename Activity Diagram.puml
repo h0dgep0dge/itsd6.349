@@ -1,4 +1,4 @@
-@startuml
+@startuml Activity Diagram
 
 start
     :display search interface;
