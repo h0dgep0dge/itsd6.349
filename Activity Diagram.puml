@@ -1,19 +1,19 @@
 @startuml Activity Diagram
 
 start
-    :display search interface;
-    repeat :user search;
-    if(is search valid) then (valid)
-        :valid;
-        if(results found?) then (results)
-            :display information;
-        else (no results)
-            :no results found;
+    :Display search interface;
+    repeat :User enters search;
+    if(Is search valid?) then (Valid)
+        if(results found?) then (Results found)
+            :Display information;
+        else (No results found)
+            :No results found message;
         endif
-    else (invalid)
-        :show error;
+    else (Not valid)
+        :Show error;
     endif
-    repeat while (perform another search) is (yes)
-    ->no;
+    repeat while (Perform another search?) is (Yes)
+    ->No;
 end
+
 @enduml

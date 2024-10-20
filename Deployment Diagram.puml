@@ -7,8 +7,10 @@ node "<<Device>> HPE Proliant ML350" as server {
             file db.php
         }
         node "<<Application>> Updater" as Updater
-        database "<<Database>> PostgreSQL" as Postgres
-        Updater -ri(0- Postgres
+        node "<<Application>> PostGreSQL" as Postgres {
+            database "DB"
+        }
+        Updater -(0- Postgres
         Postgres -0)- Apache
     }
     file Dockerfile
@@ -20,7 +22,7 @@ node "<<Device>> Mobile Phone" as Phone {
         file "Local Cache"
         node "<<UI>> Map"
     }
-    Huntref -(0- Apache
+    Apache -0)- Huntref
 }
 
 cloud "<<Remote Server>> Data server" as Data {
