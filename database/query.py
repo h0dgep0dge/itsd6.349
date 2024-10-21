@@ -8,27 +8,8 @@ conn = psycopg2.connect(database="huntref",
 
 cursor = conn.cursor()
 
-# add a red deer (0) at 175.28116357346426 -38.37439329113799 with abundance M
 
-coords = [175.28116357346426,-38.37439329113799]
-abun = "M"
-
-cursor.execute("SELECT id,ST_Distance(position,ST_MAKEPOINT(%s,%s)::GEOGRAPHY) as distance FROM permit_areas order by distance limit 1;",(coords[0],coords[1]))
-
-aid = cursor.fetchone()[0]
-print(aid)
-#cursor.execute("SELECT permit_areas.area_name,area_animal_assoc.* FROM permit_areas JOIN area_animal_assoc ON area_id=permit_areas.id")
-#cursor.execute("SELECT permit_areas.area_name,area_animal_assoc.* FROM permit_areas JOIN area_animal_assoc ON area_id=permit_areas.id WHERE permit_areas.id="+str(aid))
-cursor.execute("SELECT * FROM area_animal_assoc WHERE area_id=%s;",(aid))
-
-if cursor.rowcount == 0:
-    print(cursor.rowcount,"inserting")
-    cursor.execute("INSERT INTO area_animal_assoc (animal_id,area_id,abundance) VALUES (0,%s,%s);",(aid,abun))
-else:
-    print("already exists",cursor.fetchall())
-
-
-cursor.execute("SELECT permit_areas.area_name,area_animal_assoc.* FROM permit_areas JOIN area_animal_assoc ON area_id=permit_areas.id")
+cursor.execute("SELECT permit_areas.area_name,area_animal_assoc.*,game_animals.common_name FROM permit_areas JOIN area_animal_assoc ON area_id=permit_areas.id join game_animals on animal_id=game_animals.id")
 #cursor.execute("SELECT permit_areas.area_name,area_animal_assoc.* FROM permit_areas JOIN area_animal_assoc ON area_id=permit_areas.id WHERE permit_areas.id="+str(aid))
 print(cursor.rowcount)
 for row in cursor.fetchall():
