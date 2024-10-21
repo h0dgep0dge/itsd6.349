@@ -6,9 +6,9 @@ CREATE DATABASE huntref;
 CREATE EXTENSION postgis;
 
 CREATE TABLE game_animals (
-    id int primary key,
+    id serial primary key,
     common_name varchar(255),
-    scientific_name varchar(255)
+    scientific_name varchar(255) unique
 );
 
 CREATE TABLE permit_areas (
