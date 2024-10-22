@@ -41,7 +41,7 @@ for feature in o["features"]:
         cursor.execute("SELECT * FROM area_animal_assoc WHERE area_id=%s AND animal_id=%s;",(area_id,animal_id))
 
         if cursor.rowcount == 0:
-            print(cursor.rowcount,"inserting")
+            print("inserting",coords)
             cursor.execute("INSERT INTO area_animal_assoc (animal_id,area_id,abundance) VALUES (%s,%s,%s);",(animal_id,area_id,abun))
         #else:
             #print("already exists",cursor.fetchall())
